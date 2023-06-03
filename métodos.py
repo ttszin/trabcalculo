@@ -2,20 +2,23 @@
 import math 
 from numpy import log as ln
 
-def main():
-    funcao()
 
 
-def funcao():
-    k = 1.38*10**-23
-    q = 1.602*10**-19
-    t = 300
-    i2 = 2
-    r = 330
-    v = 6
+
+def main(): 
+    funcao_bissecao()
 
 
-    i = v/r
+def funcao_bissecao():
+    k = 1.38e-23                    # Constante de Boltzmann
+    q = 1.602e-19                   # Carga elétrica do eletron
+    t = 300                         # Temperatura do ambiente em Kelvin
+    i2 = 2e-3                       # Corrente de saturação no diodo
+    r = 330                         # Resistência no circuito
+    v = 6                           # Tensão no circuito
+
+
+    i = v/r                         
     print(i)
 
     accuracy = 0.0001
@@ -25,15 +28,15 @@ def funcao():
     vd = (k*t/q)*cal            # t = temperatura do ambiente em kelvin // q = carga elétrica do elétron // i2 = corrente de saturação do diodo // k = 1,38 x 10^-23  
     vr = r*i                               # tensão no resistor = resistencia x tensão
     
-    f = vr - vd - i*r                    # i = corrente no circuito // r = resistência no resistor // k = constante de Boltzmann // 
+    f = vr - vd - v                    # i = corrente no circuito // r = resistência no resistor // k = constante de Boltzmann // 
 
-    print(vd)
-    print(vr)
-    print(f)
+    return(f)
 
-
-
-
-
-
+def bissecao():
+    if f(a)*f(b) >= 0:
+        print("A função não possui raiz no intervalo fornecido.")
+    while(b-a)>=precisao:
+        cont = 0
+        
+        cont+=1        
 main()
